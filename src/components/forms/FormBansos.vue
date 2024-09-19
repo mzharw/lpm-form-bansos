@@ -230,7 +230,7 @@ export default {
       <div class="d-flex flex-row align-center justify-space-between">
         <h1 class="font-weight-medium">Formulir penerima bantuan sosial LPM Jabar</h1>
         <img
-            src="http://cigombong-cigombong.desa.id/assets/files/data/website-desa-cigombong-3201382001/images/logo_LPM.png"
+            src="/logo_LPM.png"
             alt="logo" width="80">
       </div>
       <v-divider></v-divider>
