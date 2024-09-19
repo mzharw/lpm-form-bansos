@@ -57,7 +57,7 @@ export default defineComponent({
   setup() {
     const notifications = ref<Notification[]>([]);
     let nextId = 0;
-    let updateInterval: number | null = null;
+    let updateInterval: Timer | null = null;
 
     const hasNotifications = computed(() => notifications.value.length > 0);
 

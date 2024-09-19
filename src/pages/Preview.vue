@@ -2,7 +2,7 @@
 import FormBansos from "../components/forms/FormBansos.vue";
 
 const props = defineProps({
-  formData: FormBansos
+  formData: {}
 })
 
 const emits = defineEmits([
@@ -17,8 +17,9 @@ function getFileURL(file: File): string {
   return URL.createObjectURL(file);
 }
 
-const file_ktp = props.formData.file_ktp[0]
-const file_kk = props.formData.file_kk[0]
+const data = props?.formData as typeof FormBansos
+const file_ktp = data.file_ktp[0]
+const file_kk = data.file_kk[0]
 
 </script>
 
@@ -35,83 +36,83 @@ const file_kk = props.formData.file_kk[0]
         <tbody>
         <tr>
           <th>Nama</th>
-          <td>{{ props.formData.name }}</td>
+          <td>{{ data.name }}</td>
         </tr>
         <tr>
           <th>NIK</th>
-          <td>{{ props.formData.nik }}</td>
+          <td>{{ data.nik }}</td>
         </tr>
         <tr>
           <th>Nomor KK</th>
-          <td>{{ props.formData.nkk }}</td>
+          <td>{{ data.nkk }}</td>
         </tr>
         <tr>
           <th>File KTP</th>
           <td>
             <img :src="getFileURL(file_ktp)" alt="Preview KTP" width="100" v-if="isImage(file_ktp)" />
-            {{ props.formData.file_ktp ? file_ktp.name : 'Belum diunggah' }}
+            {{ data.file_ktp ? file_ktp.name : 'Belum diunggah' }}
           </td>
         </tr>
         <tr>
           <th>File KK</th>
           <td>
             <img :src="getFileURL(file_kk)" alt="Preview KK" width="100" v-if="isImage(file_kk)" />
-            {{ props.formData.file_kk ? file_kk.name : 'Belum diunggah' }}
+            {{ data.file_kk ? file_kk.name : 'Belum diunggah' }}
           </td>
         </tr>
         <tr>
           <th>Umur</th>
-          <td>{{ props.formData.age }}</td>
+          <td>{{ data.age }}</td>
         </tr>
         <tr>
           <th>Jenis Kelamin</th>
-          <td>{{ props.formData.gender === 'male' ? 'Laki-laki' : 'Perempuan' }}</td>
+          <td>{{ data.gender === 'male' ? 'Laki-laki' : 'Perempuan' }}</td>
         </tr>
         <tr>
           <th>Provinsi</th>
-          <td>{{ props.formData.province }}</td>
+          <td>{{ data.province }}</td>
         </tr>
         <tr>
           <th>Kabupaten/Kota</th>
-          <td>{{ props.formData.regency }}</td>
+          <td>{{ data.regency }}</td>
         </tr>
         <tr>
           <th>Kecamatan</th>
-          <td>{{ props.formData.district }}</td>
+          <td>{{ data.district }}</td>
         </tr>
         <tr>
           <th>Kelurahan/Desa</th>
-          <td>{{ props.formData.sub_district }}</td>
+          <td>{{ data.sub_district }}</td>
         </tr>
         <tr>
           <th>Alamat</th>
-          <td>{{ props.formData.address }}</td>
+          <td>{{ data.address }}</td>
         </tr>
         <tr>
           <th>RT</th>
-          <td>{{ props.formData.rt }}</td>
+          <td>{{ data.rt }}</td>
         </tr>
         <tr>
           <th>RW</th>
-          <td>{{ props.formData.rw }}</td>
+          <td>{{ data.rw }}</td>
         </tr>
         <tr>
           <th>Pendapatan Sebelum Pandemi</th>
           <td>{{
-              props.formData.income_before_pandemic ? props.formData.income_before_pandemic.toLocaleString() : 'Tidak tersedia'
+              data.income_before_pandemic ? data.income_before_pandemic.toLocaleString() : 'Tidak tersedia'
             }}
           </td>
         </tr>
         <tr>
           <th>Pendapatan Setelah Pandemi</th>
           <td>{{
-              props.formData.income_after_pandemic ? props.formData.income_after_pandemic.toLocaleString() : 'Tidak tersedia'
+              data.income_after_pandemic ? data.income_after_pandemic.toLocaleString() : 'Tidak tersedia'
             }}
           </td>
         </tr>
         <tr>
           <th>Alasan Mengajukan</th>
-          <td>{{ props.formData.reason_for_apply }}</td>
+          <td>{{ data.reason_for_apply }}</td>
         </tr>
         </tbody>
         <tfoot>
